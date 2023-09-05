@@ -4,7 +4,7 @@ namespace Warehouse
     internal class Program
     {
 
-        public const string FILE_NAME = "C:\\Warehouse\\ImportFile.xlsx";
+        public const string FILE_NAME = @"C:\Warehouse\ImportFile.xlsx";
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to warehouse app!");
@@ -22,8 +22,34 @@ namespace Warehouse
 
             Console.WriteLine("Please choose another option...");
 
-            choice = Console.ReadLine(); 
-        
+            choice = Console.ReadLine();
+
+            
+            int a = 5;
+            int b = a;
+
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+
+            b = 50;
+            Console.WriteLine(a);
+            Console.WriteLine(b);
+
+            Item item = new Item() { Id = 1, Name = "Apple" };
+            Item item2 = item;
+            Console.WriteLine(item.Name);   
+            Console.WriteLine(item2.Name);
+
+            item2.Name = "Watermelon";
+            Console.WriteLine(item.Name);
+            Console.WriteLine(item2.Name);
+
+            string str = "Napis o tak naprawdę dowolnej długości";
+
+            Console.Write("Select item category: \r\n 1. Groceery \r\n 2. Clothing \r\n 3. Elelctronics");
+            Console.WriteLine("To jest backslach \\ \'");
+            Console.WriteLine(@"To jest backslach z użyciem małpy \  '");
+
         }
 
     }
