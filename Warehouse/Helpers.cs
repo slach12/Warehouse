@@ -17,23 +17,32 @@ namespace Warehouse
             bool isTrue = false;
             return number;
         }
+    }
 
-        public enum ItemTypes
-        {
-            Grocery,
-            Clothing,
-            Electronics
-        }
+    public enum ItemType
+    {
+        Grocery,
+        Clothing,
+        Electronics
+    }
 
-        public struct SomeStructure
+    public class ItemService
+    {
+        public void AddItem()
+        { }
+
+        public void RemoveItem() 
+        { }
+    }
+    public struct SomeStructure
+    {
+        public int numberForStructure;
+        private string nameOfStructure;
+        public SomeStructure(int number, string name)
         {
-            public int numberForStructure;
-            private string nameOfStructure;
-            public SomeStructure(int number, string name)
-            {
-                this.numberForStructure = number;
-                this.nameOfStructure = name;
-            }    
+            this.numberForStructure = number;
+            this.nameOfStructure = name;
         }
     }
+
 }
