@@ -57,68 +57,108 @@ namespace Warehouse
             Enum.TryParse(category, out chosenCategory);
 
 
-            Item item4 = new Item() { Id = 4, Name = "Strawberry" };
+            a = 5;
+            b = 10;
+            int wynik;
+            wynik = a + b;
+            Console.WriteLine("a + b");
+            Console.WriteLine(wynik);
+            wynik = a - b;
+            Console.WriteLine("a - b");
+            Console.WriteLine(wynik);
+            wynik = a * b;
+            Console.WriteLine("a * b");
+            Console.WriteLine(wynik);
+            wynik = a / b;
+            Console.WriteLine("a / b");
+            Console.WriteLine(wynik);
+            wynik = a % b;
+            Console.WriteLine("a % b");
+            Console.WriteLine(wynik);
+            b = 8;
+            wynik = a % b;
+            Console.WriteLine("a % b");
+            Console.WriteLine(wynik);
+            Console.WriteLine(a);
+            Console.WriteLine("a++");
+            a++;
+            Console.WriteLine(a);
 
-            item4.CategoryId = chosenCategory switch { 
-                ItemType.Grocery => 1,
-                ItemType.Clothing => 2,
-                ItemType.Electronics => 3,
-                _ => -1
-            };
+            string ala = "Ala ma";
+            string kota = "kota";
 
+            string alaMaKota = ala + kota;
+            Console.WriteLine(alaMaKota);
 
-            if(chosenOption == 1 && chosenCategory == ItemType.Grocery)
-            {
-                //
+            if (chosenOption == 1 && chosenCategory == ItemType.Clothing) {
+                Console.WriteLine(alaMaKota);
+                Console.WriteLine(alaMaKota);
+                Console.WriteLine(alaMaKota);
             }
 
-            ItemService itemService = new ItemService();
 
-            switch (chosenOption)
-            {
-                case 1:
-                    itemService.AddItem();
-                    break;
-                case 2:
-                    itemService.RemoveItem();
-                    break;
-                default: 
-                    //Wyrzucić wyjątek i poinformować użytkownika o błędnym wyborze
-                    break;
-            }
+            /*            Item item4 = new Item() { Id = 4, Name = "Strawberry" };
 
- /*           if (chosenOption == 1)
-            {
-                Item item3 = new Item() { Id = 3, Name = "Strawbery" };
-                item3.CategoryId = chosenCategory == ItemTypes.Grocery ? 1 : 2;
-                
-                if (chosenCategory == ItemTypes.Grocery)
-                {
-                    item3.CategoryId = 1;
-                }
-                else
-                {
-                    item3.CategoryId = 2;
-                }
-                    
-                    
-            }*/
+                        item4.CategoryId = chosenCategory switch { 
+                            ItemType.Grocery => 1,
+                            ItemType.Clothing => 2,
+                            ItemType.Electronics => 3,
+                            _ => -1
+                        };
 
-/*            if (chosenOption == 1)
-            {
-                Item aItem = new Item() { Id = 2, Name = "Strawberry" };
-            }
-            else if (chosenOption == 2) 
-            {
-                //Coś dla if elsa
-            }
-            else
-            {
-                //Coś dla elsa
-            }
-*/
-        
-        
+
+                        if(chosenOption == 1 && chosenCategory == ItemType.Grocery)
+                        {
+                            //
+                        }
+
+                        ItemService itemService = new ItemService();
+
+                        switch (chosenOption)
+                        {
+                            case 1:
+                                itemService.AddItem();
+                                break;
+                            case 2:
+                                itemService.RemoveItem();
+                                break;
+                            default: 
+                                //Wyrzucić wyjątek i poinformować użytkownika o błędnym wyborze
+                                break;
+                        }
+            */
+            /*           if (chosenOption == 1)
+                       {
+                           Item item3 = new Item() { Id = 3, Name = "Strawbery" };
+                           item3.CategoryId = chosenCategory == ItemTypes.Grocery ? 1 : 2;
+
+                           if (chosenCategory == ItemTypes.Grocery)
+                           {
+                               item3.CategoryId = 1;
+                           }
+                           else
+                           {
+                               item3.CategoryId = 2;
+                           }
+
+
+                       }*/
+
+            /*            if (chosenOption == 1)
+                        {
+                            Item aItem = new Item() { Id = 2, Name = "Strawberry" };
+                        }
+                        else if (chosenOption == 2) 
+                        {
+                            //Coś dla if elsa
+                        }
+                        else
+                        {
+                            //Coś dla elsa
+                        }
+            */
+
+
         }
 
     }
