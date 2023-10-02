@@ -57,45 +57,75 @@ namespace Warehouse
             Enum.TryParse(category, out chosenCategory);
 
 
-            a = 5;
-            b = 10;
-            int wynik;
-            wynik = a + b;
-            Console.WriteLine("a + b");
-            Console.WriteLine(wynik);
-            wynik = a - b;
-            Console.WriteLine("a - b");
-            Console.WriteLine(wynik);
-            wynik = a * b;
-            Console.WriteLine("a * b");
-            Console.WriteLine(wynik);
-            wynik = a / b;
-            Console.WriteLine("a / b");
-            Console.WriteLine(wynik);
-            wynik = a % b;
-            Console.WriteLine("a % b");
-            Console.WriteLine(wynik);
-            b = 8;
-            wynik = a % b;
-            Console.WriteLine("a % b");
-            Console.WriteLine(wynik);
-            Console.WriteLine(a);
-            Console.WriteLine("a++");
-            a++;
-            Console.WriteLine(a);
 
-            string ala = "Ala ma";
-            string kota = "kota";
+            bool isPerson = true;
 
-            string alaMaKota = ala + kota;
-            Console.WriteLine(alaMaKota);
+            if( (isPerson && chosenOption == 1) || (isPerson &&  chosenOption == 2))
+            {
 
-            if (chosenOption == 1 && chosenCategory == ItemType.Clothing) {
-                Console.WriteLine(alaMaKota);
-                Console.WriteLine(alaMaKota);
-                Console.WriteLine(alaMaKota);
             }
 
+
+            if (! isPerson )
+            {
+                //Firma
+            }
+
+            bool warunek = true;
+
+            if (!warunek)
+            {
+
+            }
+
+            if (chosenOption == 1 && chosenCategory == ItemType.Grocery) {
+                    //iloczyn logiczny and
+            }
+
+            if (chosenOption == 1 || chosenCategory == ItemType.Grocery)
+            {
+                //suma logiczna or
+            }
+
+            /*           a = 5;
+                       b = 10;
+                       int wynik;
+                       wynik = a + b;
+                       Console.WriteLine("a + b");
+                       Console.WriteLine(wynik);
+                       wynik = a - b;
+                       Console.WriteLine("a - b");
+                       Console.WriteLine(wynik);
+                       wynik = a * b;
+                       Console.WriteLine("a * b");
+                       Console.WriteLine(wynik);
+                       wynik = a / b;
+                       Console.WriteLine("a / b");
+                       Console.WriteLine(wynik);
+                       wynik = a % b;
+                       Console.WriteLine("a % b");
+                       Console.WriteLine(wynik);
+                       b = 8;
+                       wynik = a % b;
+                       Console.WriteLine("a % b");
+                       Console.WriteLine(wynik);
+                       Console.WriteLine(a);
+                       Console.WriteLine("a++");
+                       a++;
+                       Console.WriteLine(a);
+
+                       string ala = "Ala ma";
+                       string kota = "kota";
+
+                       string alaMaKota = ala + kota;
+                       Console.WriteLine(alaMaKota);
+
+                       if (chosenOption == 1 && chosenCategory == ItemType.Clothing) {
+                           Console.WriteLine(alaMaKota);
+                           Console.WriteLine(alaMaKota);
+                           Console.WriteLine(alaMaKota);
+                       }
+           */
 
             /*            Item item4 = new Item() { Id = 4, Name = "Strawberry" };
 
