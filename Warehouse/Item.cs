@@ -8,7 +8,21 @@ namespace Warehouse
 {
     public class Item
     {
-        public int Id { get; set; }
+        private int _id;
+        public int Id => _id; //odpowiednik -> public int Id { get { return _id; } }
+        public void setId(int id)
+        {
+            _id = id;
+        }
+   /*     public int Id { get
+            {
+                return _id;        
+            } 
+            set 
+            {
+                _id = value+10;
+            } 
+        }*/
         public string Name { get; set; }
         public int CategoryId { get; set; }
 

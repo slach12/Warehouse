@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Warehouse
 {
-    public class Helpers
+    public static class Helpers
     {
-        public int GiveNumber()
+        public static int GiveNumber()
         {
             SomeStructure stru = new SomeStructure();
 
@@ -17,17 +17,43 @@ namespace Warehouse
             bool isTrue = false;
             return number;
         }
+
+        public static int KgToG(int kgCount)
+        {
+            return kgCount * 1000;
+        }
     }
 
     public enum ItemType
     {
-        Grocery,
+        Grocery= 1,
         Clothing,
         Electronics
     }
 
-    public class ItemService
+    public enum Weekday
     {
+        Monday,
+        Tuesday,
+        Wednesday,
+        Thursday,
+        Friday,
+        Saturday,
+        Sunday
+    }
+
+    public enum ReportFrequency
+    {
+        Weekly = 7,
+        Biweekly = 14,
+        Quarely = 90
+    }
+    public class ItemServices
+    {
+        public ItemServices()
+        {
+        }
+
         public void AddItem()
         { }
 
