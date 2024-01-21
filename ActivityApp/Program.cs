@@ -44,43 +44,57 @@ namespace ActivityApp
              Int32.TryParse(choice, out choiseOption);*/
 
             //Użytkownik zostanie przywitany
-            ////a. Stworzenie nowego ćwiczenia
-            ////b. Usunięcie ćwiczenia
-            ////c. Wyświetlenie listy ćwiczeń
-            ////d. Zwrócenie listy ćwiczeń o zadanym filtrze (nazwa kategorii)
-            /////a1. Najpierw dostanę wyboru kategorię ćwiczenia
-            /////a2. Zostanę poproszony o wprowadzenie wszystkich szczegułów
-            /////b1. Zostanę poproszony o id albo nazwę produktu
-            /////b2. Usunę ten produkt z listy produktów
-            /////
-            
-            Console.WriteLine("Witam w  Activty App!");
-            Console.WriteLine("Powiedz mi co chesz zrobić:");
+            ////####################################a. Stworzenie nowej aktywności
+            ////####################################b. Usunięcie aktywności
+            ////####################################c. Wyświetlenie listy aktywności
+            ////d. Zwrócenie listy aktywności o zadanym filtrze (nazwa kategorii)
+            /////###################################a1. Najpierw dostanę wyboru kategorię aktywności
+            /////###################################a2. Zostanę poproszony o wprowadzenie wszystkich szczegułów
+            /////###################################b1. Zostanę poproszony o id albo nazwę aktywności
+            /////###################################b2. Usunę tę aktywność z listy aktywności
+            /////###################################c1. Zostanę poproszony o wprowadzenie id aktywności
+            /////###################################c2. Wyświetlę wszystkie informacje związane z tą aktywnością
+            /////d1. Zostanę poproszony o wprowadzenie nazwy albo id kategorii
+            /////d2. Wyświetlę listę aktywności
 
+            Console.WriteLine("Witam w  Activty App!");
             MenuActionService actionService = new MenuActionService();
             actionService = Initialize(actionService);
-
-            var mainMenu = actionService.GetMenuActionsByMenuName("Menu");
-            for(int i = 0; i < mainMenu.Count; i++)
+            ItemService itemService = new ItemService();
+            while (true) 
             {
-                Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
-            }
-            var operation = Console.ReadKey();
-            switch (operation.KeyChar)
-            {
-                case '1':
-                    break;
-                case '2':
-                    break;
-                case '3':
-                    break;
-                case '4':
-                    break;
+                Console.WriteLine("Powiedz mi co chesz zrobić:");
+                var mainMenu = actionService.GetMenuActionsByMenuName("Main");
+                for (int i = 0; i < mainMenu.Count; i++)
+                {
+                    Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
+                }
+                var operation = Console.ReadKey();
+                
+                switch (operation.KeyChar)
+                {
+                    case '1':
+                        var keyInfo = itemService.AddNewItemView(actionService);
+                        var id = itemService.AddNewItem(keyInfo.KeyChar);
+                        break;
+                    case '2':
+                        var removeId = itemService.RemoveItemView();
+                        itemService.RemoveItem(removeId);
+                        break;
+                    case '3':
+                        var detailId = itemService.ItemDetailSelectionView();
+                        itemService.ItemDetailView(detailId);
+                        break;
+                    case '4':
+                        break;
 
-                default: 
-                    Console.WriteLine("Polecenie, które wybrałeś nie istnieje.");
-                    break;
+                    default:
+                        Console.WriteLine("Polecenie, które wybrałeś nie istnieje.");
+                        break;
+                }
+
             }
+
 
         }
 
@@ -90,6 +104,11 @@ namespace ActivityApp
             actionService.AddNewAction(2, "Usuń aktwyność", "Main");
             actionService.AddNewAction(3, "Pokaż detale aktywności", "Main");
             actionService.AddNewAction(4, "Lista aktywności", "Main");
+
+            actionService.AddNewAction(1, "Pływanie", "AddNewItemMenu");
+            actionService.AddNewAction(2, "Bieganie", "AddNewItemMenu");
+            actionService.AddNewAction(3, "Ćwiczenia", "AddNewItemMenu");
+
             return actionService;
         }
     }
