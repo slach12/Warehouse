@@ -32,30 +32,21 @@ namespace ActivityApp
                 •	Zrobić zestawienie aktywności w zadanym okresie czasu
             */
 
-            /* Console.WriteLine("Witam w  Activty App!");
-             Console.WriteLine("Powiedz mi co chesz zrobić:");
-             Console.WriteLine("1. Dodać aktywność");
-             Console.WriteLine("2. Usunąć aktywność");
-             Console.WriteLine("3. Sprawdzić listę aktywności");
-             Console.WriteLine("Wybierz opcię 1,2 lub 3...");
-
-             string choice = Console.ReadLine();
-             int choiseOption = 0;
-             Int32.TryParse(choice, out choiseOption);*/
-
             //Użytkownik zostanie przywitany
-            ////####################################a. Stworzenie nowej aktywności
-            ////####################################b. Usunięcie aktywności
-            ////####################################c. Wyświetlenie listy aktywności
-            ////d. Zwrócenie listy aktywności o zadanym filtrze (nazwa kategorii)
+            /////###################################a. Stworzenie nowej aktywności
+            /////###################################b. Usunięcie aktywności
+            /////###################################c. Wyświetlenie aktywności
+            /////###################################d. Zwrócenie listy aktywności o zadanym filtrze (nazwa kategorii) 
+            /////################################### - listę aktywności danej kategorii, dla typu wszystkie wyświetli wszystkie aktywności 
             /////###################################a1. Najpierw dostanę wyboru kategorię aktywności
             /////###################################a2. Zostanę poproszony o wprowadzenie wszystkich szczegułów
             /////###################################b1. Zostanę poproszony o id albo nazwę aktywności
             /////###################################b2. Usunę tę aktywność z listy aktywności
             /////###################################c1. Zostanę poproszony o wprowadzenie id aktywności
             /////###################################c2. Wyświetlę wszystkie informacje związane z tą aktywnością
-            /////d1. Zostanę poproszony o wprowadzenie nazwy albo id kategorii
-            /////d2. Wyświetlę listę aktywności
+            /////###################################d1. Zostanę poproszony o wprowadzenie nazwy albo id kategorii
+            /////###################################d2. Wyświetlę listę aktywności
+
 
             Console.WriteLine("Witam w  Activty App!");
             MenuActionService actionService = new MenuActionService();
@@ -86,6 +77,8 @@ namespace ActivityApp
                         itemService.ItemDetailView(detailId);
                         break;
                     case '4':
+                        var typeId = itemService.ItemTypeSelectionView();
+                        itemService.ItemByTypeIdView(typeId);
                         break;
 
                     default:

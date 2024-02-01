@@ -36,7 +36,7 @@ namespace ActivityApp
             int itemTypeId;
             Int32.TryParse(itemType.ToString(), out itemTypeId);    
             Item item = new Item();
-            item.TypeId = itemTypeId;
+            item.TypeId = (ItemTypes)itemTypeId;
             Console.WriteLine();
             Console.WriteLine("Podaj id dla nowej aktywności:");
             var id = Console.ReadLine();
@@ -45,8 +45,27 @@ namespace ActivityApp
             Console.WriteLine("Podaj nazwę dla aktywności:");
             var name = Console.ReadLine();
 
+            Console.WriteLine("Podaj ilość aktywności:");
+            Console.WriteLine("Pływanie  - liczba przepłyniętych basenów (25 m)");
+            Console.WriteLine("Bieganie  - pokonany dystans w kilometrach");
+            Console.WriteLine("Ćwiczenie - ilość wykonanych powtórzeń");
+            double quantity;
+            Double.TryParse(Console.ReadLine(),out quantity);
+            Console.WriteLine("Podaj czas jaki zajeło wykonanie aktywności w minutach:");
+            double activityTime;
+            Double.TryParse(Console.ReadLine(), out activityTime);
+            Console.WriteLine("Podaj wagę w dniu aktywności");
+            double weight;
+            Double.TryParse(Console.ReadLine(), out weight);
+
             item.Id = itemId;
             item.Name = name;
+            item.Weight = weight;
+            item.Quantity = quantity;
+            item.ActivtyTime = activityTime;
+            item.ActivityDate = DateTime.Now;
+
+
             
             Items.Add(item);
             return itemId;
@@ -89,7 +108,18 @@ namespace ActivityApp
 
             return id;
         }
-
+        public int  ItemTypeSelectionView()
+        {
+            Console.WriteLine("Podaj id typu aktywności , które chcesz wyświetlić:");
+            Console.WriteLine("1 - pływanie");
+            Console.WriteLine("2 - bieganie");
+            Console.WriteLine("3 - ćwiczenia");
+            Console.WriteLine("4 - Wszystkie typy aktywności");
+            var itemId = Console.ReadKey();
+            int id;
+            Int32.TryParse(itemId.KeyChar.ToString(), out id);
+            return id;
+        }
         public void ItemDetailView(int detailId)
         {
             Item activityToShow = new Item();
@@ -101,9 +131,31 @@ namespace ActivityApp
                     break;
                 }
             }
-            Console.WriteLine($"Item id : {activityToShow.Id}");
-            Console.WriteLine($"Item name : {activityToShow.Name}");
-            Console.WriteLine($"Item type id : {activityToShow.TypeId}");
+            Console.WriteLine($"Id aktywności    : {activityToShow.Id}");
+            Console.WriteLine($"Nazwa aktywności : {activityToShow.Name}");
+            Console.WriteLine($"Data aktywności  : {activityToShow.ActivityDate}");
+            Console.WriteLine($"Typ aktywności   : {activityToShow.TypeId}");
+            Console.WriteLine($"Ilość   : {activityToShow.Quantity} {activityToShow.Unit} w czasie {activityToShow.ActivtyTime} minuty");
+            Console.WriteLine($"Waga w dniu aktywności : {activityToShow.Weight}");
+        }
+
+        public void ItemByTypeIdView(int typeId)
+        {
+            List<Item> toShow = new List<Item>();
+            foreach (var item in Items)
+            {
+                if (item.Id == typeId || typeId == (int)ItemTypes.All)
+                {
+                    toShow.Add(item);
+                }
+            }
+            
+            foreach(var item in toShow)
+            {
+                Console.WriteLine($"Id : {item.Id} | Name : {item.Name}");
+            }
+
+            
         }
     }
 }

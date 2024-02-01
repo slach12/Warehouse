@@ -12,8 +12,9 @@ namespace ActivityApp
 
     public enum ItemTypes
     {
-        Swimming,
-        Running,
-        Exercising
+        Swimming = 1,
+        Running = 2 ,
+        Exercising = 3,
+        All = 4
     }
 }
