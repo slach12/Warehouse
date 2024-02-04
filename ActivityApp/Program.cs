@@ -54,6 +54,7 @@ namespace ActivityApp
             ItemService itemService = new ItemService();
             while (true) 
             {
+
                 Console.WriteLine("Powiedz mi co chesz zrobić:");
                 var mainMenu = actionService.GetMenuActionsByMenuName("Main");
                 for (int i = 0; i < mainMenu.Count; i++)
@@ -61,6 +62,7 @@ namespace ActivityApp
                     Console.WriteLine($"{mainMenu[i].Id}. {mainMenu[i].Name}");
                 }
                 var operation = Console.ReadKey();
+                Console.WriteLine();
                 
                 switch (operation.KeyChar)
                 {
@@ -85,8 +87,9 @@ namespace ActivityApp
                         Console.WriteLine("Polecenie, które wybrałeś nie istnieje.");
                         break;
                 }
-
+                Console.WriteLine();
             }
+
 
 
         }
