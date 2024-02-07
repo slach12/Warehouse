@@ -10,17 +10,6 @@ namespace Warehouse
         static void Main(string[] args)
         {
 
-            //Użytkownik zostanie przywitany
-            //Dostanie możliwość wyboru akcji
-            ////d. zwrócenie listy przedmiotów o zadanym filtrze
-
-  
-            //// d1 zostanie poproszony o wprowadzenie id
-            //// d2 wyświetli listę produktów
-            ///
-            /// 
-            ///
-
 
             MenuActionService actionService = new MenuActionService();
             actionService = Initialize(actionService);
