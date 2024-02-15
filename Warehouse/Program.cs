@@ -38,6 +38,7 @@ namespace Warehouse
                     case '1':
                         var keyInfo = itemService.AddNewItemView(actionService);
                         var id = itemService.AddNewItem(keyInfo.KeyChar);
+                        var id2 = itemService.AddNewItem(keyInfo.KeyChar, 6);
                         break;
                     case '2':
                         var removeId = itemService.RemoveItemView();

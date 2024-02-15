@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -14,6 +16,22 @@ namespace Warehouse
         public ItemService()
         {
             Items = new List<Item>();
+ 
+        }
+
+
+        public int AddGroceryItem(int id, string name ,int typeId)
+        {
+
+            GroceryItem groeryItem = new GroceryItem(id,name);   
+            groeryItem.Id = id;
+            groeryItem.Name = name; 
+            groeryItem.ExploryDate = DateTime.Now;  
+
+          /*  Item item = new Item();
+            item.Explo*/
+              
+            return 0;
         }
 
 
@@ -50,6 +68,24 @@ namespace Warehouse
             return itemId;
 
         }
+
+
+
+        public int AddNewItem(char itemType , int id)
+        {
+            int itemTypeId;
+            Int32.TryParse(itemType.ToString(), out itemTypeId);
+            Item item = new Item();
+            item.TypeId = itemTypeId;
+          
+            Console.WriteLine("Please enter name for new item:");
+            var name = Console.ReadLine();
+            item.Id = id;
+            item.Name = name;
+            Items.Add(item);
+            return id;
+        }
+
 
         public int RemoveItemView()
         {
