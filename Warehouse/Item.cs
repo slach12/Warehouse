@@ -7,7 +7,19 @@ using System.Threading.Tasks;
 
 namespace Warehouse
 {
+    public class ClothingItem : Item
+    {
+        public DateTime ExploryDate { get; set; }
+        public ClothingItem(int id, string name) : base(id, name)
+        { }
 
+        public new void ShowDetails()
+        {
+            Console.WriteLine("Cloth");
+            base.ShowDetails();
+            //Console.WriteLine($"Item Explorty Date is : {ExploryDate.ToShortDateString()}");
+        }
+    }
 
     public class GroceryItem : Item
     {
@@ -15,16 +27,11 @@ namespace Warehouse
         public GroceryItem(int id, string name) : base(id, name)
         { }
 
-        public void ShowDetails()
+        public override void ShowDetails()
         {
             base.ShowDetails();
-
             Console.WriteLine($"Item Explorty Date is : {ExploryDate.ToShortDateString()}");
-
         }
-
-
-
     }
 
 
@@ -40,7 +47,7 @@ namespace Warehouse
 
     public class Item : AuditableModel
     {
-        public void ShowDetails()
+        public virtual void ShowDetails()
         {
             Console.WriteLine($"Item id is : {Id}");
             Console.WriteLine($"Item name is : {Name}");

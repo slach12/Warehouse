@@ -15,7 +15,12 @@ namespace Warehouse
             actionService = Initialize(actionService);
             ItemService itemService = new ItemService();
             Console.WriteLine("Witaj w programie warehouse.");
-            while (true)
+
+            itemService.ShowDifferentItems();
+
+            bool loop = false;
+
+            while (loop)
             {
                 Console.WriteLine("Co chcesz wybrać ? : ");
                 var mainMenu = actionService.GetMenuActionsByMenuName("Menu");

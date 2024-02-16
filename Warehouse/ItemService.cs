@@ -182,5 +182,35 @@ namespace Warehouse
             Console.WriteLine($"Znaleziono {toShow.Count} elementów");
             
         }
+
+
+        public int ShowDifferentItems()
+        {
+            Item item = new Item(1,"Item");
+            GroceryItem groceryItem = new GroceryItem(2, "apple");
+            ClothingItem clothingItem = new ClothingItem(3, "Shirt");
+            List<Item> items = new List<Item>();
+            items.Add(item);
+            items.Add(groceryItem);
+            items.Add(clothingItem);
+
+            foreach(var it in items)
+            {
+                if (it is ClothingItem)
+                {
+                    ClothingItem cloItem = (ClothingItem) it;
+                    cloItem.ShowDetails();
+                }
+                else
+                {
+                    it.ShowDetails();
+                }
+                
+
+            }
+
+            return 0;
+        }
+
     }
 }
