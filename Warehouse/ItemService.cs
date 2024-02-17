@@ -9,8 +9,38 @@ using System.Threading.Tasks;
 
 namespace Warehouse
 {
+
+    public class GenericService<T> where T : class
+    {
+        public List<T> Items { get; set; }   
+        public GenericService() 
+        {
+            Items = new List<T>();
+        }
+
+        public List<T> GetAll()
+        {
+            return Items;
+        }
+
+        public void Add(T item)
+        {
+            Items.Add(item);
+
+        }
+
+        public void Remove(T item)
+        {
+            Items.Remove(item);
+        }
+
+
+
+    }
+
     public class ItemService
     {
+
         //public List<Item> Items {  get; set; }
         public List<Item> Items;
         public ItemService()

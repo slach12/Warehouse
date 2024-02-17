@@ -19,6 +19,15 @@ namespace Warehouse
             base.ShowDetails();
             //Console.WriteLine($"Item Explorty Date is : {ExploryDate.ToShortDateString()}");
         }
+
+        public override void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+            if (Quantity < 5)
+            {
+                isLowInWarehouse = true;
+            }
+        }
     }
 
     public class GroceryItem : Item
@@ -31,6 +40,15 @@ namespace Warehouse
         {
             base.ShowDetails();
             Console.WriteLine($"Item Explorty Date is : {ExploryDate.ToShortDateString()}");
+        }
+
+        public override void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+            if (Quantity < 50)
+            {
+                isLowInWarehouse = true;
+            }
         }
     }
 
@@ -45,12 +63,41 @@ namespace Warehouse
 
     }
 
-    public class Item : AuditableModel
+    public interface IItem
+    {
+        int Id { get; }
+        string Name { get; set; }
+        int TypeId { get; set; }
+        int Quantity { get; set; }
+        bool IsLowInWarehouse { get; set; }
+
+        public void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+            if (Quantity < 50)
+            {
+                IsLowInWarehouse = true;
+            }
+        }
+    }
+    public  class Item : AuditableModel
     {
         public virtual void ShowDetails()
         {
             Console.WriteLine($"Item id is : {Id}");
             Console.WriteLine($"Item name is : {Name}");
+        }
+
+        protected int Quantity;
+        protected bool isLowInWarehouse;
+
+        public virtual void ChangeQuantity(int quantity)
+        {
+            Quantity = quantity;
+            if (Quantity < 50)
+            {
+                isLowInWarehouse = true;
+            }
         }
         public Item(int id ,string name)
         {

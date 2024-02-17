@@ -61,6 +61,22 @@ namespace Warehouse
                         Console.WriteLine("Action that you entered does not exist");
                         break;
                 }
+
+                GenericService<Item> genericItemService = new GenericService<Item>();
+                Item itemForGeneric = new Item(1, "Apple");
+                Item item2ForGeneric = new Item(2, "Strawberry");
+
+                genericItemService.Add(itemForGeneric);
+                genericItemService.Add(item2ForGeneric);
+
+                var items = genericItemService.GetAll();
+                genericItemService.Remove(itemForGeneric);
+
+
+                GenericService<MenuAction> genericActionService = new GenericService<MenuAction>();
+                MenuAction menuAction = new MenuAction(1,"Generic test");
+                genericActionService.Add(menuAction);
+
             }
             /* Console.WriteLine("Welcome to warehouse app!");
               Console.WriteLine("Please let me know what you want to do:");
