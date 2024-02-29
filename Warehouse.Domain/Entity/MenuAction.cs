@@ -3,23 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Warehouse.Domain.Common;
 
-namespace Warehouse
+namespace Warehouse.Domain.Entity
 {
-    public class MenuAction
+    public class MenuAction : BaseEntity
     {
-        public int Id {  get; set; }
         public string Name { get; set; }
         public string MenuName {  get; set; }
-        public MenuAction():this(1,"Bieganie")
-        {
-        
-        }
 
-        public MenuAction(int id, string name)
+        public MenuAction(int id, string name,string menuName)
         {
             Id = id;
             Name = name;
+            MenuName = menuName;
         }
 
     }

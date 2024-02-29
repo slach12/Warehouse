@@ -1,5 +1,9 @@
 ﻿using System;
-using static Warehouse.Helpers;
+using Warehouse.App.Concrete;
+using Warehouse.App.Managers;
+using Warehouse.Domain.Entity;
+using Warehouse.Helpers;
+
 
 namespace Warehouse
 {
@@ -9,15 +13,12 @@ namespace Warehouse
         public const string FILE_NAME = @"C:\Warehouse\ImportFile.xlsx";
         static void Main(string[] args)
         {
-
-
             MenuActionService actionService = new MenuActionService();
-            actionService = Initialize(actionService);
-            ItemService itemService = new ItemService();
+            //ItemService itemService = new ItemService();
+            ItemManager itemManager = new ItemManager(actionService);
             Console.WriteLine("Witaj w programie warehouse.");
 
-            itemService.ShowDifferentItems();
-
+            
             bool loop = false;
 
             while (loop)
@@ -41,9 +42,7 @@ namespace Warehouse
                 switch (operation.KeyChar)
                 {
                     case '1':
-                        var keyInfo = itemService.AddNewItemView(actionService);
-                        var id = itemService.AddNewItem(keyInfo.KeyChar);
-                        var id2 = itemService.AddNewItem(keyInfo.KeyChar, 6);
+                        var newId = itemManager.AddNewItem();
                         break;
                     case '2':
                         var removeId = itemService.RemoveItemView();
@@ -93,19 +92,6 @@ namespace Warehouse
 
         }
 
-        private static MenuActionService Initialize(MenuActionService actionService)
-        {
-            actionService.AddNewAction(1, "Add item", "Menu");
-            actionService.AddNewAction(2, "Remove item", "Menu");
-            actionService.AddNewAction(3, "Show details", "Menu");
-            actionService.AddNewAction(4, "List of items", "Menu");
 
-
-            actionService.AddNewAction(1, "Clothing", "AddNewItemMenu");
-            actionService.AddNewAction(2, "Electronics", "AddNewItemMenu");
-            actionService.AddNewAction(3, "Grocery", "AddNewItemMenu");
-
-            return actionService;
-        }
     }
 }
