@@ -39,5 +39,76 @@ namespace Warehouse.App.Managers
             _itemService.AddItem(item);
             return item.Id;
         }
+
+        public int RemoveItem()
+        {
+            Console.WriteLine("Please enter ID for item you want to remove:");
+            var itemId = Console.ReadKey();
+            Console.ReadLine();
+            int removeId;
+            Int32.TryParse(itemId.KeyChar.ToString(), out removeId);
+
+            Item productToRemove = new Item();
+            foreach (var item in _itemService.Items)
+            {
+                if (item.Id == removeId)
+                {
+                    productToRemove = item;
+                    break;
+                }
+            }
+            _itemService.RemoveItem(productToRemove);
+  
+            return removeId;
+        }
+
+
+        public int DetailViewItem()
+        {
+            Console.WriteLine("Please enter ID for item you want to show:");
+            var itemId = Console.ReadKey();
+            Console.ReadLine();
+            int detailId;
+            Int32.TryParse(itemId.KeyChar.ToString(), out detailId);
+            Item productToShow = new Item();
+            foreach (var item in _itemService.Items)
+            {
+                if (item.Id == detailId)
+                {
+                    productToShow = item;
+                    break;
+                }
+            }
+            Console.WriteLine($"Item id : {productToShow.Id}");
+            Console.WriteLine($"Item name : {productToShow.Name}");
+            Console.WriteLine($"Item type id : {productToShow.TypeId}");
+            return detailId;
+        }
+
+
+
+        public int ByTypeIdViewItem()
+        {
+            Console.WriteLine("Please enter Type iD for item you want to show:");
+            var itemId = Console.ReadKey();
+            Console.ReadLine();
+            int typeId;
+            Int32.TryParse(itemId.KeyChar.ToString(), out typeId);
+            List<Item> toShow = new List<Item>();
+            foreach (var item in _itemService.Items)
+            {
+                if (item.TypeId == typeId)
+                {
+                    toShow.Add(item);
+                }
+            }
+            Console.WriteLine($"Znaleziono {toShow.Count} elementów");
+
+            return typeId;
+        }
+
+
+
+
     }
 }

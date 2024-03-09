@@ -24,5 +24,11 @@ namespace Warehouse.Domain.Entity
             Id = id;
         }
 
+        public Item() 
+        { 
+        
+        }
+
+
     }
 }

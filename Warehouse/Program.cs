@@ -19,7 +19,7 @@ namespace Warehouse
             Console.WriteLine("Witaj w programie warehouse.");
 
             
-            bool loop = false;
+            bool loop = true;
 
             while (loop)
             {
@@ -45,53 +45,20 @@ namespace Warehouse
                         var newId = itemManager.AddNewItem();
                         break;
                     case '2':
-                        var removeId = itemService.RemoveItemView();
-                        itemService.RemoveItem(removeId);
+                        var removeId = itemManager.RemoveItem();
                         break;
                     case '3':
-                        var detailId = itemService.ItemDetailSelectionView();
-                        itemService.ItemDetailView(detailId);
+                        var detailId = itemManager.DetailViewItem();
                         break;
                     case '4':
-                        var typeId = itemService.ItemTypeSelectionView();
-                        itemService.ItemsByTypeIdView(typeId);
+                        var typeId = itemManager.ByTypeIdViewItem(); 
                         break;
                     default:
                         Console.WriteLine("Action that you entered does not exist");
                         break;
                 }
 
-                GenericService<Item> genericItemService = new GenericService<Item>();
-                Item itemForGeneric = new Item(1, "Apple");
-                Item item2ForGeneric = new Item(2, "Strawberry");
-
-                genericItemService.Add(itemForGeneric);
-                genericItemService.Add(item2ForGeneric);
-
-                var items = genericItemService.GetAll();
-                genericItemService.Remove(itemForGeneric);
-
-
-                GenericService<MenuAction> genericActionService = new GenericService<MenuAction>();
-                MenuAction menuAction = new MenuAction(1,"Generic test");
-                genericActionService.Add(menuAction);
-
             }
-            /* Console.WriteLine("Welcome to warehouse app!");
-              Console.WriteLine("Please let me know what you want to do:");
-              Console.WriteLine("1. Add Item");
-              Console.WriteLine("2. Remove Item");
-              Console.WriteLine("3. Check Item");
-              Console.WriteLine("Press 1,2 or 3...");
-
-              string category = Console.ReadLine();
-              ItemType chosenCategory;
-
-              Enum.TryParse(category, out chosenCategory);*/
-
-
         }
-
-
     }
 }
