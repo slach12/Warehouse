@@ -18,7 +18,7 @@ namespace Warehouse
             ItemManager itemManager = new ItemManager(actionService);
             Console.WriteLine("Witaj w programie warehouse.");
 
-            
+            //Test
             bool loop = true;
 
             while (loop)
