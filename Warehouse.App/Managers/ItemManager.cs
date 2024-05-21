@@ -20,6 +20,12 @@ namespace Warehouse.App.Managers
             _actionService = actionService;
         }
 
+        public ItemManager(MenuActionService actionService,ItemService itemService)
+        {
+            _itemService = itemService;
+            _actionService = actionService;
+        }
+
         public int AddNewItem()
         {
             var addNewItemMenu = _actionService.GetMenuActionsByMenuName("AddNewItemMenu");
@@ -107,7 +113,11 @@ namespace Warehouse.App.Managers
             return typeId;
         }
 
-
+        public Item GetItemById( int id )
+        {
+            var item = _itemService.GetItemById( id );
+            return item;
+        }
 
 
     }

@@ -5,9 +5,9 @@ VisualStudioVersion = 17.7.34018.315
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse", "Warehouse\Warehouse.csproj", "{CFC80E2D-A74C-472F-9203-B5989657F005}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.App", "Warehouse.App\Warehouse.App.csproj", "{FB0640E5-C72B-45EA-8119-77298183029B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.App", "Warehouse.App\Warehouse.App.csproj", "{FB0640E5-C72B-45EA-8119-77298183029B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Warehouse.Domain", "Warehouse.Domain\Warehouse.Domain.csproj", "{8E873D86-CD39-439E-A746-5ECCEEEA28F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.Domain", "Warehouse.Domain\Warehouse.Domain.csproj", "{8E873D86-CD39-439E-A746-5ECCEEEA28F0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
