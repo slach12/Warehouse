@@ -4,9 +4,10 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warehouse.Domain.Abstract;
+using Warehouse.App.Abstract;
+using Warehouse.Domain.Common;
 
-namespace Warehouse.Domain.Common
+namespace Warehouse.App.Common
 {
     public class BaseService<T> : IService<T> where T : BaseEntity
     {

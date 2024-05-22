@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Warehouse.Domain.Abstract
+namespace Warehouse.App.Abstract
 {
     public interface IService<T>
     {

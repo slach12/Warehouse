@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Warehouse.Domain.Common;
+using Warehouse.App.Common;
 using Warehouse.Domain.Entity;
 
 namespace Warehouse.App.Concrete
